@@ -1,0 +1,41 @@
+Paragraph standard license agreement for installable OpenType fonts*
+
+1. Allowed uses
+
+You may use the licensed fonts to create images on any surface such as computer screens, paper, web pages, photographs, movie credits, printed material, T-shirts, and other surfaces where the image is a fixed size.
+You may use the licensed fonts to create EPS files or other scalable drawings provided that such files are only used by the household or company licensing the font.
+
+2. Number of users
+
+The maximum number of simultaneous users is specified in the applicable receipt. All users must belong to the same
+company or household purchasing the font. (* for Webfonts, see note below) 
+
+3. Third parties
+
+You may provide the font to a graphic designer, printer or other service bureau that is working on your behalf only if they agree to use the font exclusively for your work, agree to the terms of this license, and retain no copies of the font on completion of the work.
+You may not provide the font or make it accessible to any other third parties. (* see note below) 
+
+4. Embedding
+
+You may embed the licensed fonts into any document you send to third parties. Such documents may be viewed and printed (but not edited) by the recipients.
+
+You may not under any circumstances embed the licensed fonts into software or hardware products in which the fonts will be used by the purchasers of such products. Such use requires a different license. Please contact paragraph@bigpond.com for further information. (* see note below)
+
+5. Modifications
+
+You may import characters from the font as graphical objects into a drawing program and modify such graphical objects.
+You may not modify, adapt, translate, reverse engineer, decompile, disassemble, or create derivative works based on the licensed font itself without Paragraph’s prior written consent.
+
+6. Copyright
+
+The font and the accompanying materials are copyrighted and contain proprietary information and trade secrets belonging to the foundry owning the font. Unauthorized copying of the fonts even if modified, merged, or included with other software, or of the written materials, is expressly forbidden. You may be held legally responsible for any infringement of the foundry’s intellectual property rights that is caused or encouraged by your failure to abide by the terms of this Agreement. (* see note below)
+
+7. Product Upgrades 
+
+Paragraph may, from time to time, update the fonts. Upgrade pricing may apply. 
+
+8. Termination
+
+This Agreement is effective until terminated. This Agreement will terminate automatically without notice from Fontspring or Paragraph if you fail to comply with any provision contained herein. Upon termination, you must destroy the written materials, the fonts, and all copies of them, in part and in whole, including modified copies, if any.
+
+*Web fonts use is governed by the attached Fontspring @Font-Face License Addendum.
