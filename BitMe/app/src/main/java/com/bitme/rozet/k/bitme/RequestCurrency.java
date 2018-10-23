@@ -47,6 +47,8 @@ public class RequestCurrency extends AppCompatActivity {
                     edit.commit();
                 }
                 break;
+            default:
+                break;
         }
     }
 }
