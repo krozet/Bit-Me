@@ -15,9 +15,9 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="20dp"
-            android:layout_weight="15">
+            android:layout_weight="40">
 
             <ImageView
                 android:id="@+id/inputname_logo_large"
@@ -29,8 +29,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="25">
+            android:layout_height="0dp"
+            android:layout_weight="20">
 
             <ImageView
                 android:id="@+id/inputname_welcome"
@@ -42,8 +42,8 @@
 
         <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="5">
+        android:layout_height="0dp"
+        android:layout_weight="8">
 
         <ImageView
             android:id="@+id/inputname_enter_name"
@@ -55,11 +55,11 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="35">
+            android:layout_height="0dp"
+            android:layout_weight="17">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="100">
@@ -91,8 +91,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="20">
+            android:layout_height="0dp"
+            android:layout_weight="15">
 
             <LinearLayout
                 android:layout_width="match_parent"

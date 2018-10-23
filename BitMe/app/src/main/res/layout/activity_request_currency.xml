@@ -15,8 +15,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="15">
+            android:layout_height="0dp"
+            android:layout_weight="40">
 
             <ImageView
                 android:id="@+id/requestcurrency_logo_large"
@@ -29,8 +29,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="20">
+            android:layout_height="0dp"
+            android:layout_weight="15">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -64,8 +64,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="10">
+            android:layout_height="0dp"
+            android:layout_weight="12">
 
             <ImageView
                 android:id="@+id/requestcurrency_select_currency_text"
@@ -77,13 +77,12 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="35">
+            android:layout_height="0dp"
+            android:layout_weight="18">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="35">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -113,7 +112,7 @@
                                 android:textSize="14sp"
                                 android:textColor="@color/colorPrimary"
                                 android:entries="@array/currency_names"
-                                android:popupBackground="@drawable/background">
+                                android:popupBackground="@drawable/spinner_gradient">
                             </Spinner>
                         </RelativeLayout>
                     </RelativeLayout>
@@ -129,8 +128,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="20">
+            android:layout_height="0dp"
+            android:layout_weight="15">
 
             <LinearLayout
                 android:layout_width="match_parent"
