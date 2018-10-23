@@ -1,7 +1,9 @@
 package com.bitme.rozet.k.bitme;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class InputName extends AppCompatActivity {
+    SharedPreferences sharedPreferences;
     EditText userNameEditText;
     Button submitButton;
     String name;
@@ -30,8 +33,12 @@ public class InputName extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (validateName()) {
-                    Toast.makeText(getApplicationContext(), name,
-                            Toast.LENGTH_LONG).show();
+                    sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                    SharedPreferences.Editor edit = sharedPreferences.edit();
+                    edit.putString("userName", name);
+                    edit.commit();
+                    setResult(RESULT_OK);
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "Please enter a valid name.",
                             Toast.LENGTH_LONG).show();

@@ -39,12 +39,12 @@ public class RequestCurrency extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch(resultCode) {
+        switch(requestCode) {
             case RESULT_FIRST_START:
                 if (resultCode == RESULT_OK) {
                     SharedPreferences.Editor edit = sharedPreferences.edit();
                     edit.putBoolean("isFirstStart", Boolean.FALSE);
-                    edit.apply();
+                    edit.commit();
                 }
                 break;
         }
