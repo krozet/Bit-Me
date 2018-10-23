@@ -70,7 +70,7 @@
                     android:layout_weight="20"/>
 
                 <EditText
-                    android:id="@+id/display_message_input"
+                    android:id="@+id/inputname_enter_name_field"
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
                     android:layout_weight="60"
