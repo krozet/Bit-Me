@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Bit Me</string>
+    <string name="inputname_welcome">Welcome to              , a Bitcoin
+currency conversion tool!</string>
 </resources>
