@@ -1,6 +1,29 @@
 <resources>
     <string name="app_name">Bit Me</string>
+    <string name="requestcurrency_hello">Hello,&#160;</string>
     <string name="inputname_submit">Submit</string>
-    <string name="inputname_welcome">Welcome to              , a Bitcoin
-currency conversion tool!</string>
+    <string name="requestcurrency_convert">Convert</string>
+    
+    <string-array name="currency_names">
+        <item>United States dollar - USD (US$)</item>
+        <item>Euro - EUR (€)</item>
+        <item>Japanese yen - JPY (¥)</item>
+        <item>Pound sterling - GBP (£)</item>
+        <item>Australian dollar - AUD (A$)</item>
+        <item>Canadian dollar - CAD (C$)</item>
+        <item>Swiss franc - CHF (Fr)</item>
+        <item>Renminbi - CNY (元)</item>
+        <item>Swedish krona - SEK (kr)</item>
+        <item>New Zealand dollar - NZD (NZ$)</item>
+        <item>Mexican peso - MXN ($)</item>
+        <item>Singapore dollar - SGD (S$)</item>
+        <item>Hong Kong dollar - HKD (HK$)</item>
+        <item>Norwegian krone - NOK (kr)</item>
+        <item>South Korean won - KRW (₩)</item>
+        <item>Turkish lira - TRY (₺)</item>
+        <item>Russian ruble - RUB (₽)</item>
+        <item>Indian rupee - INR (₹)</item>
+        <item>Brazilian real - BRL (R$)</item>
+        <item>South African rand - ZAR (R)</item>
+    </string-array>
 </resources>

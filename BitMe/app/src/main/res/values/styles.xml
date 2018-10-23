@@ -13,5 +13,4 @@
         <item name="colorControlActivated">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorAccent</item>
     </style>
-
 </resources>
