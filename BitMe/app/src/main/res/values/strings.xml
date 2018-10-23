@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Bit Me</string>
     <string name="requestcurrency_hello">Hello,&#160;</string>
+    <string name="currencyconversion_equivalent">Today\'s Bitcoin value is equivalent to</string>
     <string name="inputname_submit">Submit</string>
     <string name="requestcurrency_convert">Convert</string>
     
