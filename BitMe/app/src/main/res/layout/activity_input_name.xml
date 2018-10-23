@@ -58,16 +58,35 @@
             android:layout_height="wrap_content"
             android:layout_weight="35">
 
-            <EditText
-                android:id="@+id/display_message_input"
-                android:layout_height="wrap_content"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginLeft="100dp"
-                android:selectAllOnFocus="false"
-                android:inputType="textPersonName"
-                android:ems="20"
-                android:theme="@style/WhiteLineEditTextTheme"
-                android:layout_centerHorizontal="true"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="20"/>
+
+                <EditText
+                    android:id="@+id/display_message_input"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="60"
+                    android:selectAllOnFocus="false"
+                    android:inputType="textPersonName"
+                    android:gravity="center"
+                    android:ems="20"
+                    android:theme="@style/WhiteLineEditTextTheme"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="20"/>
+
+            </LinearLayout>
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -75,12 +94,30 @@
             android:layout_height="wrap_content"
             android:layout_weight="20">
 
-            <Button
-                android:id="@+id/inputname_submit"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="Button" />
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="30"/>
+
+                <Button
+                    android:id="@+id/inputname_submit"
+                    android:layout_width="0dp"
+                    android:layout_weight="40"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_menu"
+                    android:text="@string/inputname_submit" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="30"/>
+            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 
