@@ -2,13 +2,17 @@ package com.bitme.rozet.k.bitme;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class RequestCurrency extends AppCompatActivity {
     private static final int RESULT_FIRST_START = 1;
+
+    TextView nameTextView, helloTextView;
 
     SharedPreferences sharedPreferences;
     String name;
@@ -20,6 +24,18 @@ public class RequestCurrency extends AppCompatActivity {
 
         checkPreviouslyStarted();
         name = sharedPreferences.getString("userName", "User");
+
+        setupNameTextView();
+    }
+
+    private void setupNameTextView() {
+        nameTextView = findViewById(R.id.requestcurrency_name);
+        nameTextView.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf"));
+        String displayName = name + "!";
+        nameTextView.setText(displayName);
+
+        helloTextView = findViewById(R.id.requestcurrency_hello);
+        helloTextView.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf"));
     }
 
     private void checkPreviouslyStarted() {
