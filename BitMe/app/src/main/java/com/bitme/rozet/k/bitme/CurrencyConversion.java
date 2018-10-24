@@ -11,6 +11,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
+
 public class CurrencyConversion extends AppCompatActivity {
     TextView numberTextView, abrvTextView, oneTextView, btcTextView, todaysValueTextView, equivalentValueTextView, equivalentAbrvTextView;
     Button returnButton;
@@ -20,6 +30,8 @@ public class CurrencyConversion extends AppCompatActivity {
     Typeface mentone;
 
     int currencyPos;
+    int currencyConvertedValue = 0;
+    String abrvAndSymbol = "";
     boolean executeOnResume = false;
 
     @Override
@@ -36,8 +48,44 @@ public class CurrencyConversion extends AppCompatActivity {
         setupEquivalentValueTextView();
         setupEquivalentAbrvTextView();
         setupReturnButton();
+        retrieveConvertedCurrency();
 
-        startCountAnimation(600);
+    }
+
+    private void retrieveConvertedCurrency() {
+        String fromCurrency = "BTC";
+        String toCurrency = currencies.getCurrencyAbrv(currencyPos);
+        final String combinedCurrencies = fromCurrency + "_" + toCurrency;
+        String url = "http://free.currencyconverterapi.com/api/v6/convert?q="
+                        + combinedCurrencies + "&compact=ultra";
+
+        System.out.println("-------------Before the call-----------------");
+
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(url, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+
+                try {
+                    String data = response.getString(combinedCurrencies);
+                    currencyConvertedValue = (int) Float.parseFloat(data);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+                startCountAnimation(currencyConvertedValue);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+
+                Toast.makeText(getApplicationContext(), "Connection to server cannot be reached", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void setupReturnButton() {
@@ -54,6 +102,8 @@ public class CurrencyConversion extends AppCompatActivity {
         equivalentAbrvTextView = findViewById(R.id.currencyconversion_equivalent_abrv_text);
         equivalentAbrvTextView.setTextColor(Color.parseColor("#FF9800"));
         equivalentAbrvTextView.setTypeface(mentone);
+        equivalentAbrvTextView.setText(abrvAndSymbol);
+
     }
 
     private void setupTodaysValueTextView() {
@@ -76,6 +126,7 @@ public class CurrencyConversion extends AppCompatActivity {
         abrvTextView = findViewById(R.id.currencyconversion_abrv);
         abrvTextView.setTextColor(Color.parseColor("#FF9800"));
         abrvTextView.setTypeface(mentone);
+        abrvTextView.setText(abrvAndSymbol);
     }
 
     private void setupNumberTextView() {
@@ -100,6 +151,8 @@ public class CurrencyConversion extends AppCompatActivity {
         currencyPos = sharedPreferences.getInt("currency", 0);
         currencies = new Currencies();
         mentone = Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf");
+
+        abrvAndSymbol = currencies.getCurrencySymbol(currencyPos) + " " + currencies.getCurrencyAbrv(currencyPos);
     }
 
     @Override
