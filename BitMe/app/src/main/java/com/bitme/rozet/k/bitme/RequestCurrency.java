@@ -43,10 +43,14 @@ public class RequestCurrency extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        // used to select the same currency selected from your previous selection
         selectCurrencySpinner.setSelection(sharedPreferences.getInt("currency", 0));
+
         displayName();
     }
 
+    // retrieves name from shared preferences and displays it
     private void displayName() {
         name = sharedPreferences.getString("userName", "User");
         String displayName = name + "!";
@@ -55,6 +59,7 @@ public class RequestCurrency extends AppCompatActivity {
 
     private void setupConvertButton() {
         convertButton = findViewById(R.id.requestcurrency_convert);
+        // changes font and text color
         convertButton.setTypeface(mentone);
         convertButton.setTextColor(Color.parseColor("#224A6B"));
         convertButton.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +73,7 @@ public class RequestCurrency extends AppCompatActivity {
     private void openCurrencyConversion() {
         Intent intent = new Intent(this, CurrencyConversion.class);
         SharedPreferences.Editor edit = sharedPreferences.edit();
+        // puts the index of the selected currency from the spinner into shared preferences
         edit.putInt("currency", selectCurrencySpinner.getSelectedItemPosition());
         edit.commit();
         startActivity(intent);
@@ -76,6 +82,7 @@ public class RequestCurrency extends AppCompatActivity {
     private void setupSelectCurrencySpinner() {
         currency = new Currencies();
         selectCurrencySpinner = findViewById(R.id.requestcurrency_select_currency_spinner);
+        // uses a custom adapter to alter the font
         selectCurrencySpinner.setAdapter(new MySpinnerAdapter(this, R.layout.spinner_item, currency.getList()));
 
         spinnerItemTextView = findViewById(R.id.requestcurrency_spinner_item);
@@ -91,6 +98,7 @@ public class RequestCurrency extends AppCompatActivity {
         helloTextView.setTypeface(mentone);
     }
 
+    // handles if this is the first time opening the activity
     private void checkPreviouslyStarted() {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean firstStart = sharedPreferences.getBoolean("isFirstStart", true);
@@ -110,6 +118,8 @@ public class RequestCurrency extends AppCompatActivity {
 
         switch(requestCode) {
             case RESULT_FIRST_START:
+                // if InputName returns RESULT_OK, then changed shared preferences
+                // so that InputName will not be started again
                 if (resultCode == RESULT_OK) {
                     SharedPreferences.Editor edit = sharedPreferences.edit();
                     edit.putBoolean("isFirstStart", Boolean.FALSE);
