@@ -1,5 +1,9 @@
 package com.bitme.rozet.k.bitme;
 
+/*
+    Custom spinner class that changes the font of the items
+ */
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.View;

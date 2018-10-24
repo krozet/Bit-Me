@@ -52,10 +52,13 @@ public class CurrencyConversion extends AppCompatActivity {
         retrieveConvertedCurrency();
     }
 
+    // uses AsyncHttpClient to request a JSON of converted currency
     private void retrieveConvertedCurrency() {
         String fromCurrency = "BTC";
+        // selects the currency that the user requested in RequestCurrency activity
         final String toCurrency = currencies.getCurrencyAbrv(currencyPos);
         final String combinedCurrencies = fromCurrency + "_" + toCurrency;
+        // the url with sufficient queries to retrieve the JSON
         String url = "http://free.currencyconverterapi.com/api/v6/convert?q="
                         + combinedCurrencies + "&compact=ultra";
 
@@ -67,6 +70,7 @@ public class CurrencyConversion extends AppCompatActivity {
 
                 try {
                     String data = response.getString(combinedCurrencies);
+                    // converts currency to an int to truncate the decimal
                     currencyConvertedValue = (int) Float.parseFloat(data);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -78,8 +82,10 @@ public class CurrencyConversion extends AppCompatActivity {
                 if (toCurrency.equals("KRW")) {
                     numberTextView.setText(String.valueOf(currencyConvertedValue));
                     equivalentValueTextView.setText(String.valueOf(currencyConvertedValue));
-                } else
+                } else {
+                    // start the animation
                     startCountAnimation(currencyConvertedValue);
+                }
             }
 
             @Override
@@ -91,8 +97,10 @@ public class CurrencyConversion extends AppCompatActivity {
         });
     }
 
+    // button simply ends the activity - returningto RequestCurrency
     private void setupReturnButton() {
         returnButton = findViewById(R.id.currencyconversion_return);
+        // changes font and text color
         returnButton.setTypeface(mentone);
         returnButton.setTextColor(Color.parseColor("#224A6B"));
         returnButton.setOnClickListener(new View.OnClickListener() {
@@ -110,6 +118,7 @@ public class CurrencyConversion extends AppCompatActivity {
 
     private void setupEquivalentAbrvTextView() {
         equivalentAbrvTextView = findViewById(R.id.currencyconversion_equivalent_abrv_text);
+        // changes font and text color
         equivalentAbrvTextView.setTextColor(Color.parseColor("#FF9800"));
         equivalentAbrvTextView.setTypeface(mentone);
         equivalentAbrvTextView.setText(abrvAndSymbol);
@@ -128,12 +137,14 @@ public class CurrencyConversion extends AppCompatActivity {
 
     private void setupBTCTextView() {
         btcTextView = findViewById(R.id.currencyconversion_btc_text);
+        // changes font and text color
         btcTextView.setTextColor(Color.parseColor("#FF9800"));
         btcTextView.setTypeface(mentone);
     }
 
     private void setupAbrvTextView() {
         abrvTextView = findViewById(R.id.currencyconversion_abrv);
+        // changes font and text color
         abrvTextView.setTextColor(Color.parseColor("#FF9800"));
         abrvTextView.setTypeface(mentone);
         abrvTextView.setText(abrvAndSymbol);
@@ -144,6 +155,7 @@ public class CurrencyConversion extends AppCompatActivity {
         numberTextView.setTypeface(mentone);
     }
 
+    // animation for increasing the number value
     private void startCountAnimation(int value) {
         ValueAnimator animator = ValueAnimator.ofInt(0, value);
         animator.setDuration(1500);
@@ -157,6 +169,7 @@ public class CurrencyConversion extends AppCompatActivity {
     }
 
     private void init() {
+        // retrieves the position of the currency selected by the user
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         currencyPos = sharedPreferences.getInt("currency", 0);
         currencies = new Currencies();
@@ -166,6 +179,7 @@ public class CurrencyConversion extends AppCompatActivity {
     }
 
     @Override
+    // finishes the activity when the user switches to another application
     protected void onResume() {
         super.onResume();
         if (executeOnResume)

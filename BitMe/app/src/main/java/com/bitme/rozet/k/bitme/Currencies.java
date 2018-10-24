@@ -1,5 +1,10 @@
 package com.bitme.rozet.k.bitme;
 
+/*
+    Class contains all possible currencies to be converted
+    Includes currency name, abbreviation (ABRV), and symbol
+ */
+
 import java.util.ArrayList;
 
 public class Currencies {
@@ -24,6 +29,7 @@ public class Currencies {
     Currencies() {
     }
 
+    // creates the currencies to be displayed by the spinner widget
     public ArrayList getList() {
         ArrayList<String> currencies = new ArrayList<>();
 
