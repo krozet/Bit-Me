@@ -19,12 +19,12 @@ Next, I begin with creating a barebones version of the UI based on the mock ups 
 Below you can see a comparison of my Mock Ups and Implementation to see that I follow my Mock Ups very closely, but deviate on small matter to improve the design.
 
   
-_Mock Ups_
+_Mock Ups_  
 ![alt text](https://github.com/krozet/Bit-Me/blob/master/Mock%20Ups/Designs/Input%20Name.png)
 ![alt text](https://github.com/krozet/Bit-Me/blob/master/Mock%20Ups/Designs/Request%20Currency.png)
 ![alt text](https://github.com/krozet/Bit-Me/blob/master/Mock%20Ups/Designs/Currency%20Conversion.png)
 
-_Implementation_
+_Implementation_  
 ![alt text](https://github.com/krozet/Bit-Me/blob/master/Mock%20Ups/Implemented/InputName.png)
 ![alt text](https://github.com/krozet/Bit-Me/blob/master/Mock%20Ups/Implemented/RequestCurrency.png)
 ![alt text](https://github.com/krozet/Bit-Me/blob/master/Mock%20Ups/Implemented/CurrencyConversion.png)
