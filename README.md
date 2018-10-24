@@ -37,8 +37,8 @@ Since this was issued to me to complete, I have included the guidelines for the 
 your name and persists it on the phone without using a database.
 
 RequestCurrency.java - line 102
-
 InputName.java - line 42
+  
 2. After that, it goes to a screen that says &quot;Hello, !&quot;
 and asks you which currency you&#39;d like to use to convert from today&#39;s
 Bitcoin value (you can choose three or four predefined currencies options
@@ -46,18 +46,20 @@ to make things simpler and easier, or offer a search bar/scroll view with
 10-20 types).
 
 CurrencyConversion.java - line 56
-
 RequestCurrency.java - line 82
+  
 3. After confirming the desired currency, it takes you to another
 screen showing how much is 1 BTC converted to that chosen currency.
 
 RequestCurrency.java - line 91
+  
 4. After you minimize or close the app and open it again, it should
 not ask you for your name again, but instead take you directly to the
 second screen where it says &quot;Hello, !&quot; and asks about the
 desired currency.
 
 RequestCurrency.java - line 183
+  
 5. Library to use: [http://loopj.com/android-async-http/](http://loopj.com/android-async-http/) (android),
 [https://github.com/Alamofire/Alamofire(iOS)](https://github.com/Alamofire/Alamofire(iOS))
 
