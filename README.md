@@ -1,4 +1,4 @@
-#Bit Me - Bitcoin Conversion Application
+***Bit Me - Bitcoin Conversion Application***
 
 developed by Keawa Rozet
 
