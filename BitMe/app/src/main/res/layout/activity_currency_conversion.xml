@@ -181,7 +181,7 @@
                     android:layout_weight="40"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_menu"
-                    android:text="@string/requestcurrency_convert" />
+                    android:text="@string/currencyconversion_return" />
 
                 <View
                     android:layout_width="0dp"

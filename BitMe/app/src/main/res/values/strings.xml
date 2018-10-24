@@ -4,6 +4,7 @@
     <string name="currencyconversion_equivalent">Today\'s Bitcoin value is equivalent to</string>
     <string name="inputname_submit">Submit</string>
     <string name="input_submit">Submit</string>
+    <string name="currencyconversion_return">Return</string>
     <string name="pref_previously_started">false</string>
     <string name="requestcurrency_convert">Convert</string>
     <string name="name">User</string>

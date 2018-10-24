@@ -29,6 +29,8 @@ public class InputName extends AppCompatActivity {
 
     private void setupSubmitButton() {
         submitButton = findViewById(R.id.inputname_submit);
+        submitButton.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf"));
+        submitButton.setTextColor(Color.parseColor("#224A6B"));
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

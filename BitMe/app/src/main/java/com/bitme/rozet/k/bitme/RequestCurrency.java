@@ -2,6 +2,7 @@ package com.bitme.rozet.k.bitme;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
@@ -49,6 +50,8 @@ public class RequestCurrency extends AppCompatActivity {
 
     private void setupConvertButton() {
         convertButton = findViewById(R.id.requestcurrency_convert);
+        convertButton.setTypeface(mentone);
+        convertButton.setTextColor(Color.parseColor("#224A6B"));
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

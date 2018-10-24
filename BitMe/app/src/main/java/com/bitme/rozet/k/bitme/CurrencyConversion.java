@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,12 +55,10 @@ public class CurrencyConversion extends AppCompatActivity {
 
     private void retrieveConvertedCurrency() {
         String fromCurrency = "BTC";
-        String toCurrency = currencies.getCurrencyAbrv(currencyPos);
+        final String toCurrency = currencies.getCurrencyAbrv(currencyPos);
         final String combinedCurrencies = fromCurrency + "_" + toCurrency;
         String url = "http://free.currencyconverterapi.com/api/v6/convert?q="
                         + combinedCurrencies + "&compact=ultra";
-
-        System.out.println("-------------Before the call-----------------");
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, new JsonHttpResponseHandler() {
@@ -75,8 +74,13 @@ public class CurrencyConversion extends AppCompatActivity {
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
-
-                startCountAnimation(currencyConvertedValue);
+                // South Korean won is too large for the animation to handle properly
+                // will fix in the first patch after shipment
+                if (toCurrency.equals("KRW")) {
+                    numberTextView.setText(String.valueOf(currencyConvertedValue));
+                    equivalentValueTextView.setText(String.valueOf(currencyConvertedValue));
+                } else
+                    startCountAnimation(currencyConvertedValue);
             }
 
             @Override
@@ -91,6 +95,13 @@ public class CurrencyConversion extends AppCompatActivity {
     private void setupReturnButton() {
         returnButton = findViewById(R.id.currencyconversion_return);
         returnButton.setTypeface(mentone);
+        returnButton.setTextColor(Color.parseColor("#224A6B"));
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void setupEquivalentValueTextView() {
