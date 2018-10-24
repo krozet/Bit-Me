@@ -52,7 +52,9 @@ public class InputName extends AppCompatActivity {
     private boolean validateName() {
         name = userNameEditText.getText().toString();
         // checks if name is empty and if it only contains valid chars
-        return !name.isEmpty() && name.matches("[a-zA-z]+([ '-][a-zA-Z]+)*");
+        return !name.isEmpty()
+                && name.matches("[a-zA-z]+([ '-][a-zA-Z]+)*")
+                && name.length() < 20;
     }
 
     private void setupUserNameEditText() {

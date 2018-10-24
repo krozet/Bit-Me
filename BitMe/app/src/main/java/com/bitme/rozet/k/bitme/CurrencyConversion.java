@@ -50,7 +50,6 @@ public class CurrencyConversion extends AppCompatActivity {
         setupEquivalentAbrvTextView();
         setupReturnButton();
         retrieveConvertedCurrency();
-
     }
 
     private void retrieveConvertedCurrency() {

@@ -34,9 +34,7 @@ public class RequestCurrency extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_currency);
 
-
         checkPreviouslyStarted();
-        name = sharedPreferences.getString("userName", "User");
         setupNameTextView();
         setupSelectCurrencySpinner();
         setupConvertButton();
@@ -46,6 +44,13 @@ public class RequestCurrency extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         selectCurrencySpinner.setSelection(sharedPreferences.getInt("currency", 0));
+        displayName();
+    }
+
+    private void displayName() {
+        name = sharedPreferences.getString("userName", "User");
+        String displayName = name + "!";
+        nameTextView.setText(displayName);
     }
 
     private void setupConvertButton() {
@@ -80,8 +85,7 @@ public class RequestCurrency extends AppCompatActivity {
         mentone = Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf");
         nameTextView = findViewById(R.id.requestcurrency_name);
         nameTextView.setTypeface(mentone);
-        String displayName = name + "!";
-        nameTextView.setText(displayName);
+        displayName();
 
         helloTextView = findViewById(R.id.requestcurrency_hello);
         helloTextView.setTypeface(mentone);
