@@ -24,6 +24,7 @@ public class RequestCurrency extends AppCompatActivity {
     Spinner selectCurrencySpinner;
 
     SharedPreferences sharedPreferences;
+    Typeface mentone;
     Currencies currency;
     String name;
 
@@ -73,13 +74,14 @@ public class RequestCurrency extends AppCompatActivity {
     }
 
     private void setupNameTextView() {
+        mentone = Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf");
         nameTextView = findViewById(R.id.requestcurrency_name);
-        nameTextView.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf"));
+        nameTextView.setTypeface(mentone);
         String displayName = name + "!";
         nameTextView.setText(displayName);
 
         helloTextView = findViewById(R.id.requestcurrency_hello);
-        helloTextView.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf"));
+        helloTextView.setTypeface(mentone);
     }
 
     private void checkPreviouslyStarted() {
