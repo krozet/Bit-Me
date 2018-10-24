@@ -7,14 +7,21 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Currency;
 
 public class RequestCurrency extends AppCompatActivity {
     private static final int RESULT_FIRST_START = 1;
 
-    TextView nameTextView, helloTextView;
+    TextView nameTextView, helloTextView, spinnerItemTextView;
+    Spinner selectCurrencySpinner;
 
     SharedPreferences sharedPreferences;
+    Currencies currency;
     String name;
 
     @Override
@@ -22,10 +29,20 @@ public class RequestCurrency extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_currency);
 
+
         checkPreviouslyStarted();
         name = sharedPreferences.getString("userName", "User");
-
         setupNameTextView();
+        setupSelectCurrencySpinner();
+    }
+
+    private void setupSelectCurrencySpinner() {
+        currency = new Currencies();
+        selectCurrencySpinner = findViewById(R.id.requestcurrency_select_currency_spinner);
+        selectCurrencySpinner.setAdapter(new MySpinnerAdapter(this, R.layout.spinner_item, currency.getList()));
+
+        spinnerItemTextView = findViewById(R.id.requestcurrency_spinner_item);
+//        spinnerItemTextView.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf"));
     }
 
     private void setupNameTextView() {
