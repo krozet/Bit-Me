@@ -1,4 +1,4 @@
-Bit Me - Bitcoin Conversion Application
+#Bit Me - Bitcoin Conversion Application
 
 developed by Keawa Rozet
 
@@ -36,7 +36,7 @@ Since this was issued to me to complete, I have included the guidelines for the 
 1. Build an app that when you open it for the first time, it asks for
 your name and persists it on the phone without using a database.
 
-RequestCurrency.java - line 102
+RequestCurrency.java - line 102  
 InputName.java - line 42
   
 2. After that, it goes to a screen that says &quot;Hello, !&quot;
@@ -45,7 +45,7 @@ Bitcoin value (you can choose three or four predefined currencies options
 to make things simpler and easier, or offer a search bar/scroll view with
 10-20 types).
 
-CurrencyConversion.java - line 56
+CurrencyConversion.java - line 56  
 RequestCurrency.java - line 82
   
 3. After confirming the desired currency, it takes you to another
