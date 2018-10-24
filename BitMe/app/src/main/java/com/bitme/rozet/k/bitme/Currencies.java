@@ -3,6 +3,10 @@ package com.bitme.rozet.k.bitme;
 import java.util.ArrayList;
 
 public class Currencies {
+    private final static int CURRENCY_NAME = 0;
+    private final static int CURRENCY_ABRV = 1;
+    private final static int CURRENCY_SYMBOL = 2;
+
     private String[][] currenciesAndAbrvs = new String[][] {
             {"United States dollar", "Euro", "Japanese yen", "Pound sterling", "Australian dollar",
                     "Canadian dollar", "Swiss franc", "Renminbi", "Swedish krona", "New Zealand dollar",
@@ -23,10 +27,10 @@ public class Currencies {
     public ArrayList getList() {
         ArrayList<String> currencies = new ArrayList<>();
 
-        for (int i = 0; i < currenciesAndAbrvs[0].length; i++) {
-            currencies.add(currenciesAndAbrvs[0][i] + " - "
-                    + currenciesAndAbrvs[1][i]
-                    + " (" + currenciesAndAbrvs[2][i]
+        for (int i = 0; i < currenciesAndAbrvs[CURRENCY_NAME].length; i++) {
+            currencies.add(currenciesAndAbrvs[CURRENCY_NAME][i] + " - "
+                    + currenciesAndAbrvs[CURRENCY_ABRV][i]
+                    + " (" + currenciesAndAbrvs[CURRENCY_SYMBOL][i]
                     + ")");
         }
 
@@ -34,14 +38,14 @@ public class Currencies {
     }
 
     public String getCurrencyName(int pos) {
-        return currenciesAndAbrvs[0][pos];
+        return currenciesAndAbrvs[CURRENCY_NAME][pos];
     }
-    
+
     public String getCurrencyAbrv(int pos) {
-        return currenciesAndAbrvs[1][pos];
+        return currenciesAndAbrvs[CURRENCY_ABRV][pos];
     }
 
     public String getCurrencySymbol(int pos) {
-        return currenciesAndAbrvs[2][pos];
+        return currenciesAndAbrvs[CURRENCY_SYMBOL][pos];
     }
 }

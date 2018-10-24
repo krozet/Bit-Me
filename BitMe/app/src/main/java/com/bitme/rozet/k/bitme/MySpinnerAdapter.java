@@ -17,7 +17,6 @@ public class MySpinnerAdapter extends ArrayAdapter<String> {
         super(context, resource, items);
     }
 
-    // Affects default (closed) state of the spinner
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView view = (TextView) super.getView(position, convertView, parent);
@@ -25,7 +24,6 @@ public class MySpinnerAdapter extends ArrayAdapter<String> {
         return view;
     }
 
-    // Affects opened state of the spinner
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
         TextView view = (TextView) super.getDropDownView(position, convertView, parent);

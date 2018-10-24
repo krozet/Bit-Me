@@ -7,7 +7,9 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -18,6 +20,7 @@ public class RequestCurrency extends AppCompatActivity {
     private static final int RESULT_FIRST_START = 1;
 
     TextView nameTextView, helloTextView, spinnerItemTextView;
+    Button convertButton;
     Spinner selectCurrencySpinner;
 
     SharedPreferences sharedPreferences;
@@ -34,6 +37,31 @@ public class RequestCurrency extends AppCompatActivity {
         name = sharedPreferences.getString("userName", "User");
         setupNameTextView();
         setupSelectCurrencySpinner();
+        setupConvertButton();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        selectCurrencySpinner.setSelection(sharedPreferences.getInt("currency", 0));
+    }
+
+    private void setupConvertButton() {
+        convertButton = findViewById(R.id.requestcurrency_convert);
+        convertButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCurrencyConversion();
+            }
+        });
+    }
+
+    private void openCurrencyConversion() {
+        Intent intent = new Intent(this, CurrencyConversion.class);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putInt("currency", selectCurrencySpinner.getSelectedItemPosition());
+        edit.commit();
+        startActivity(intent);
     }
 
     private void setupSelectCurrencySpinner() {
@@ -42,7 +70,6 @@ public class RequestCurrency extends AppCompatActivity {
         selectCurrencySpinner.setAdapter(new MySpinnerAdapter(this, R.layout.spinner_item, currency.getList()));
 
         spinnerItemTextView = findViewById(R.id.requestcurrency_spinner_item);
-//        spinnerItemTextView.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf"));
     }
 
     private void setupNameTextView() {
