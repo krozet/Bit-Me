@@ -43,10 +43,6 @@ public class Currencies {
         return currencies;
     }
 
-    public String getCurrencyName(int pos) {
-        return currenciesAndAbrvs[CURRENCY_NAME][pos];
-    }
-
     public String getCurrencyAbrv(int pos) {
         return currenciesAndAbrvs[CURRENCY_ABRV][pos];
     }

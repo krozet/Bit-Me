@@ -6,18 +6,15 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Currency;
-
-public class RequestCurrency extends AppCompatActivity {
+public class RequestCurrencyActivity extends AppCompatActivity {
     private static final int RESULT_FIRST_START = 1;
 
     TextView nameTextView, helloTextView, spinnerItemTextView;
@@ -61,7 +58,8 @@ public class RequestCurrency extends AppCompatActivity {
         convertButton = findViewById(R.id.requestcurrency_convert);
         // changes font and text color
         convertButton.setTypeface(mentone);
-        convertButton.setTextColor(Color.parseColor("#224A6B"));
+        convertButton.setTextColor(Color.parseColor(
+                "#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryLight))));
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +69,7 @@ public class RequestCurrency extends AppCompatActivity {
     }
 
     private void openCurrencyConversion() {
-        Intent intent = new Intent(this, CurrencyConversion.class);
+        Intent intent = new Intent(this, CurrencyConversionActivity.class);
         SharedPreferences.Editor edit = sharedPreferences.edit();
         // puts the index of the selected currency from the spinner into shared preferences
         edit.putInt("currency", selectCurrencySpinner.getSelectedItemPosition());
@@ -108,7 +106,7 @@ public class RequestCurrency extends AppCompatActivity {
     }
 
     private void openInputNameActivity() {
-        Intent intent = new Intent(this, InputName.class);
+        Intent intent = new Intent(this, InputNameActivity.class);
         startActivityForResult(intent, RESULT_FIRST_START);
     }
 
@@ -118,8 +116,8 @@ public class RequestCurrency extends AppCompatActivity {
 
         switch(requestCode) {
             case RESULT_FIRST_START:
-                // if InputName returns RESULT_OK, then changed shared preferences
-                // so that InputName will not be started again
+                // if InputNameActivity returns RESULT_OK, then changed shared preferences
+                // so that InputNameActivity will not be started again
                 if (resultCode == RESULT_OK) {
                     SharedPreferences.Editor edit = sharedPreferences.edit();
                     edit.putBoolean("isFirstStart", Boolean.FALSE);

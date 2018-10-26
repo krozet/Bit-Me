@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +23,7 @@ import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
-public class CurrencyConversion extends AppCompatActivity {
+public class CurrencyConversionActivity extends AppCompatActivity {
     TextView numberTextView, abrvTextView, oneTextView, btcTextView, todaysValueTextView, equivalentValueTextView, equivalentAbrvTextView;
     Button returnButton;
 
@@ -41,21 +42,49 @@ public class CurrencyConversion extends AppCompatActivity {
         setContentView(R.layout.activity_currency_conversion);
 
         init();
-        setupNumberTextView();
-        setupAbrvTextView();
-        setupOneTextView();
-        setupBTCTextView();
-        setupTodaysValueTextView();
-        setupEquivalentValueTextView();
-        setupEquivalentAbrvTextView();
+        setupTextViews();
         setupReturnButton();
         retrieveConvertedCurrency();
+    }
+
+    private void setupTextViews() {
+        numberTextView = findViewById(R.id.currencyconversion_number);
+        numberTextView.setTypeface(mentone);
+
+        abrvTextView = findViewById(R.id.currencyconversion_abrv);
+        // changes font and text color
+        abrvTextView.setTextColor(Color.parseColor(
+                "#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))));
+        abrvTextView.setTypeface(mentone);
+        abrvTextView.setText(abrvAndSymbol);
+
+        oneTextView = findViewById(R.id.currencyconversion_one_text);
+        oneTextView.setTypeface(mentone);
+
+        btcTextView = findViewById(R.id.currencyconversion_btc_text);
+        // changes font and text color
+        btcTextView.setTextColor(Color.parseColor(
+                "#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))));
+        btcTextView.setTypeface(mentone);
+
+        todaysValueTextView = findViewById(R.id.currencyconversion_todays_value_text);
+        todaysValueTextView.setTypeface(mentone);
+
+        equivalentValueTextView = findViewById(R.id.currencyconversion_equivalent_value_text);
+        equivalentValueTextView.setTypeface(mentone);
+
+        equivalentAbrvTextView = findViewById(R.id.currencyconversion_equivalent_abrv_text);
+        // changes font and text color
+        equivalentAbrvTextView.setTextColor(Color.parseColor(
+                "#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))));
+        equivalentAbrvTextView.setTypeface(mentone);
+        equivalentAbrvTextView.setText(abrvAndSymbol);
     }
 
     // uses AsyncHttpClient to request a JSON of converted currency
     private void retrieveConvertedCurrency() {
         String fromCurrency = "BTC";
-        // selects the currency that the user requested in RequestCurrency activity
+        // selects the currency that the user requested in RequestCurrencyActivity activity
         final String toCurrency = currencies.getCurrencyAbrv(currencyPos);
         final String combinedCurrencies = fromCurrency + "_" + toCurrency;
         // the url with sufficient queries to retrieve the JSON
@@ -97,62 +126,19 @@ public class CurrencyConversion extends AppCompatActivity {
         });
     }
 
-    // button simply ends the activity - returningto RequestCurrency
+    // button simply ends the activity - returningto RequestCurrencyActivity
     private void setupReturnButton() {
         returnButton = findViewById(R.id.currencyconversion_return);
         // changes font and text color
         returnButton.setTypeface(mentone);
-        returnButton.setTextColor(Color.parseColor("#224A6B"));
+        returnButton.setTextColor(Color.parseColor(
+                "#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryLight))));
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-    }
-
-    private void setupEquivalentValueTextView() {
-        equivalentValueTextView = findViewById(R.id.currencyconversion_equivalent_value_text);
-        equivalentValueTextView.setTypeface(mentone);
-    }
-
-    private void setupEquivalentAbrvTextView() {
-        equivalentAbrvTextView = findViewById(R.id.currencyconversion_equivalent_abrv_text);
-        // changes font and text color
-        equivalentAbrvTextView.setTextColor(Color.parseColor("#FF9800"));
-        equivalentAbrvTextView.setTypeface(mentone);
-        equivalentAbrvTextView.setText(abrvAndSymbol);
-
-    }
-
-    private void setupTodaysValueTextView() {
-        todaysValueTextView = findViewById(R.id.currencyconversion_todays_value_text);
-        todaysValueTextView.setTypeface(mentone);
-    }
-
-    private void setupOneTextView() {
-        oneTextView = findViewById(R.id.currencyconversion_one_text);
-        oneTextView.setTypeface(mentone);
-    }
-
-    private void setupBTCTextView() {
-        btcTextView = findViewById(R.id.currencyconversion_btc_text);
-        // changes font and text color
-        btcTextView.setTextColor(Color.parseColor("#FF9800"));
-        btcTextView.setTypeface(mentone);
-    }
-
-    private void setupAbrvTextView() {
-        abrvTextView = findViewById(R.id.currencyconversion_abrv);
-        // changes font and text color
-        abrvTextView.setTextColor(Color.parseColor("#FF9800"));
-        abrvTextView.setTypeface(mentone);
-        abrvTextView.setText(abrvAndSymbol);
-    }
-
-    private void setupNumberTextView() {
-        numberTextView = findViewById(R.id.currencyconversion_number);
-        numberTextView.setTypeface(mentone);
     }
 
     // animation for increasing the number value

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class InputName extends AppCompatActivity {
+public class InputNameActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     EditText userNameEditText;
     Button submitButton;
@@ -31,13 +32,14 @@ public class InputName extends AppCompatActivity {
         submitButton = findViewById(R.id.inputname_submit);
         // changes font and text color
         submitButton.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf"));
-        submitButton.setTextColor(Color.parseColor("#224A6B"));
+        submitButton.setTextColor(Color.parseColor(
+                "#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryLight))));
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // if the name is acceptable, store it in shared preferences
-                // and return to RequestCurrency activity
+                // and return to RequestCurrencyActivity activity
                 if (validateName()) {
                     sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
                     SharedPreferences.Editor edit = sharedPreferences.edit();
@@ -66,12 +68,13 @@ public class InputName extends AppCompatActivity {
     private void setupUserNameEditText() {
         userNameEditText = findViewById(R.id.inputname_enter_name_field);
         // changes font and text color
-        userNameEditText.setTextColor(Color.parseColor("#FF9800"));
+        userNameEditText.setTextColor(Color.parseColor(
+                "#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))));
         userNameEditText.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf"));
     }
 
     @Override
-    // closes the application to prevent going back to RequestCurrency
+    // closes the application to prevent going back to RequestCurrencyActivity
     public void onBackPressed() {
         Intent closeApplication = new Intent(Intent.ACTION_MAIN);
         closeApplication.addCategory(Intent.CATEGORY_HOME);
