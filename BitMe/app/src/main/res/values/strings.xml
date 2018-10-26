@@ -8,4 +8,8 @@
     <string name="pref_previously_started">false</string>
     <string name="requestcurrency_convert">Convert</string>
     <string name="name">User</string>
+    <string name="usd">&#160;USD</string>
+    <string name="_0">0</string>
+    <string name="btc">&#160;BTC</string>
+    <string name="_1">1</string>
 </resources>

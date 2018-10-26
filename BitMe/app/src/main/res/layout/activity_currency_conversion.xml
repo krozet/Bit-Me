@@ -45,8 +45,8 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_alignLeft="@+id/currencyconversion_scale"
-                    android:layout_alignRight="@+id/currencyconversion_scale"
+                    android:layout_alignStart="@+id/currencyconversion_scale"
+                    android:layout_alignEnd="@+id/currencyconversion_scale"
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
@@ -74,14 +74,14 @@
                                 android:id="@+id/currencyconversion_number"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="0"
+                                android:text="@string/_0"
                                 android:textSize="18sp"/>
 
                             <TextView
                                 android:id="@+id/currencyconversion_abrv"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text=" USD"
+                                android:text="@string/usd"
                                 android:textSize="18sp"/>
                         </LinearLayout>
 
@@ -100,14 +100,14 @@
                                 android:id="@+id/currencyconversion_one_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1 "
+                                android:text="@string/_1"
                                 android:textSize="18sp"/>
 
                             <TextView
                                 android:id="@+id/currencyconversion_btc_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="BTC"
+                                android:text="@string/btc"
                                 android:textSize="18sp"/>
                         </LinearLayout>
                     </LinearLayout>
@@ -144,7 +144,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="0"
+                        android:text="@string/_0"
                         android:textSize="18sp"/>
 
                     <TextView
@@ -152,7 +152,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text=" USD"
+                        android:text="@string/usd"
                         android:textSize="18sp"/>
                 </LinearLayout>
 

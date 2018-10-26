@@ -126,7 +126,7 @@ public class CurrencyConversionActivity extends AppCompatActivity {
         });
     }
 
-    // button simply ends the activity - returningto RequestCurrencyActivity
+    // button simply ends the activity - returning to RequestCurrencyActivity
     private void setupReturnButton() {
         returnButton = findViewById(R.id.currencyconversion_return);
         // changes font and text color
