@@ -70,6 +70,7 @@ public class RequestCurrencyActivity extends AppCompatActivity {
 
     private void openCurrencyConversion() {
         Intent intent = new Intent(this, CurrencyConversionActivity.class);
+        intent.putExtra("userCurrencyPosition", selectCurrencySpinner.getSelectedItemPosition());
         SharedPreferences.Editor edit = sharedPreferences.edit();
         // puts the index of the selected currency from the spinner into shared preferences
         edit.putInt("currency", selectCurrencySpinner.getSelectedItemPosition());

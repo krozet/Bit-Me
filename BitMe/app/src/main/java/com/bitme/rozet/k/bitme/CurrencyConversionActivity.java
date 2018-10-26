@@ -1,6 +1,7 @@
 package com.bitme.rozet.k.bitme;
 
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -26,8 +27,6 @@ import cz.msebera.android.httpclient.Header;
 public class CurrencyConversionActivity extends AppCompatActivity {
     TextView numberTextView, abrvTextView, oneTextView, btcTextView, todaysValueTextView, equivalentValueTextView, equivalentAbrvTextView;
     Button returnButton;
-
-    SharedPreferences sharedPreferences;
 
     private Currencies currencies;
     private Typeface mentone;
@@ -156,8 +155,8 @@ public class CurrencyConversionActivity extends AppCompatActivity {
 
     private void init() {
         // retrieves the position of the currency selected by the user
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        currencyPos = sharedPreferences.getInt("currency", 0);
+        Intent intent = getIntent();
+        currencyPos = intent.getIntExtra("userCurrencyPosition", 0);
         currencies = new Currencies();
         mentone = Typeface.createFromAsset(getAssets(),"fonts/mentone_semibol_ita.otf");
 
