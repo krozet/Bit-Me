@@ -28,13 +28,13 @@ public class CurrencyConversionActivity extends AppCompatActivity {
     Button returnButton;
 
     SharedPreferences sharedPreferences;
-    Currencies currencies;
-    Typeface mentone;
 
-    int currencyPos;
-    int currencyConvertedValue = 0;
-    String abrvAndSymbol = "";
-    boolean executeOnResume = false;
+    private Currencies currencies;
+    private Typeface mentone;
+    private int currencyPos;
+    private int currencyConvertedValue = 0;
+    private String abrvAndSymbol = "";
+    private boolean executeOnResume = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

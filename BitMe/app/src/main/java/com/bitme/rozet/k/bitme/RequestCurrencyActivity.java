@@ -22,9 +22,9 @@ public class RequestCurrencyActivity extends AppCompatActivity {
     Spinner selectCurrencySpinner;
 
     SharedPreferences sharedPreferences;
-    Typeface mentone;
-    Currencies currency;
-    String name;
+    private Typeface mentone;
+    private Currencies currency;
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

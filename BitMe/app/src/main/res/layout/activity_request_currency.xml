@@ -111,7 +111,6 @@
                                 android:layout_width="match_parent"
                                 android:textSize="14sp"
                                 android:textColor="@color/colorPrimary"
-                                android:entries="@array/currency_names"
                                 android:popupBackground="@drawable/spinner_gradient">
                             </Spinner>
                         </RelativeLayout>
